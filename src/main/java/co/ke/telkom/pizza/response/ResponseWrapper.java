@@ -23,13 +23,23 @@ public class ResponseWrapper {
     private String responseMessage;
     private HttpStatus httpStatus;
     private Object object;
+    private String name;
 
     public ResponseWrapper() {
         this.status = 200;
         this.responseMessage = "Accepted by Server";
         this.httpStatus = HttpStatus.OK;
         this.object = "{}";
+        this.name = "Tony Blair";
         
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
     
     
