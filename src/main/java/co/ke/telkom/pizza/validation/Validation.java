@@ -37,7 +37,7 @@ public class Validation {
                   
                 }
                 
-                if(order.getPrice() > Constants.PRICE || order.getPrice() < Constants.PRICE)
+                if(order.getPrice() > Constants.PRICE && order.getPrice() < Constants.PRICE)
                 {
                     // set the value 
                   response.setStatus(HttpStatus.EXPECTATION_FAILED.value());
@@ -54,7 +54,7 @@ public class Validation {
                   
                 }
                 
-                 if(order.getQuantity() > Constants.QUANTITY || order.getQuantity() < Constants.QUANTITY)
+                 if(!(order.getQuantity() >= Constants.MIN_QUANTITY && order.getQuantity() <= Constants.MAX_QUANTITY))
                 {
                     // set the value 
                   response.setStatus(HttpStatus.EXPECTATION_FAILED.value());
@@ -63,7 +63,7 @@ public class Validation {
                   response.setHttpStatus(HttpStatus.EXPECTATION_FAILED);
                   
                   // set message defined in the constants
-                  response.setResponseMessage(Constants.EXPECTATION_FAILED);
+                  response.setResponseMessage(Constants.EXPECTATION_FAILED_QUANTITY);
                   
                   // return response immediately if the conditions are not met
                   return response;
@@ -71,7 +71,7 @@ public class Validation {
                   
                 }
                  
-                 if(order.isExtra() == Constants.EXTRA)
+                 if(order.isExtra() != Constants.EXTRA)
                 {
                     // set the value 
                   response.setStatus(HttpStatus.EXPECTATION_FAILED.value());
