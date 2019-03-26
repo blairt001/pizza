@@ -37,7 +37,7 @@ public class Validation {
                   
                 }
                 
-                if(order.getPrice() > Constants.PRICE && order.getPrice() < Constants.PRICE)
+                if(order.getPrice() >= Constants.PRICE && order.getPrice() <= Constants.PRICE)
                 {
                     // set the value 
                   response.setStatus(HttpStatus.EXPECTATION_FAILED.value());
