@@ -7,7 +7,9 @@ package co.ke.telkom.pizza.controllers;
 
 import co.ke.telkom.pizza.entities.Orders;
 import co.ke.telkom.pizza.entities.repositories.OrderInterface;
+import co.ke.telkom.pizza.response.ResponseWrapper;
 import co.ke.telkom.pizza.service.OrdersServices;
+import co.ke.telkom.pizza.validation.Validation;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,9 +40,21 @@ public class OrdersController {
     }
 
     @PostMapping(value = "/order")
-    public ResponseEntity<Orders> createOrder(@RequestBody Orders order) {
-        Orders savedOrder = orderServices.createOrder(order);
-        return new ResponseEntity<>(savedOrder, HttpStatus.CREATED);
+    public ResponseEntity<ResponseWrapper> createOrder(@RequestBody Orders order) {
+        Validation validation = new Validation();
+        ResponseWrapper response = validation.validateRequest(order, "POST");
+        
+        // Orders savedOrder = orderServices.createOrder(order);
+        //return new ResponseEntity<>(savedOrder, HttpStatus.CREATED);
+        if(validation.isValid())
+        {
+             Orders savedOrder = orderServices.createOrder(order);
+             response.setObject(savedOrder);
+             response.setHttpStatus(HttpStatus.CREATED);
+             response.setStatus(HttpStatus.CREATED.value());
+        }
+        return new ResponseEntity<>(response, response.getHttpStatus());
+       
     }
 
     @PutMapping(value = "/order/update")
