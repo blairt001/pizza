@@ -5,6 +5,7 @@
  */
 package co.ke.telkom.pizza.response;
 
+import java.time.LocalDateTime;
 import org.springframework.http.HttpStatus;
 
 /**
@@ -24,6 +25,7 @@ public class ResponseWrapper {
     private HttpStatus httpStatus;
     private Object object;
     private String name;
+    private LocalDateTime date;
 
     public ResponseWrapper() {
         this.status = 200;
@@ -31,7 +33,17 @@ public class ResponseWrapper {
         this.httpStatus = HttpStatus.OK;
         this.object = "{}";
         this.name = "Tony Blair";
+        this.date = LocalDateTime.now();
         
+        
+    }
+
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDateTime date) {
+        this.date = date;
     }
 
     public String getName() {
