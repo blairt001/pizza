@@ -29,7 +29,7 @@ public class Validation {
                   response.setHttpStatus(HttpStatus.EXPECTATION_FAILED);
                   
                   // set message defined in the constants
-                  response.setResponseMessage(Constants.EXPECTATION_FAILED);
+                  response.setResponseMessage(Constants.EXPECTATION_FAILED_TYPE);
                   
                   // return response immediately if the conditions are not met
                   return response;
@@ -38,9 +38,13 @@ public class Validation {
                 }
                 
 <<<<<<< HEAD
+<<<<<<< HEAD
                 if(!(order.getPrice() > Constants.MIN_PRICE && order.getPrice() < Constants.MAX_PRICE))
 =======
                 if(order.getPrice() >= Constants.PRICE && order.getPrice() <= Constants.PRICE)
+>>>>>>> develop
+=======
+                if(!(order.getPrice() >= Constants.MIN_PRICE && order.getPrice() <= Constants.MAX_PRICE))
 >>>>>>> develop
                 {
                     // set the value 
@@ -75,7 +79,7 @@ public class Validation {
                   
                 }
                  
-                 if(order.isExtra() != Constants.EXTRA)
+                 if(!order.isExtra() == Constants.EXTRA)
                 {
                     // set the value 
                   response.setStatus(HttpStatus.EXPECTATION_FAILED.value());
@@ -84,7 +88,7 @@ public class Validation {
                   response.setHttpStatus(HttpStatus.EXPECTATION_FAILED);
                   
                   // set message defined in the constants
-                  response.setResponseMessage(Constants.EXPECTATION_FAILED);
+                  response.setResponseMessage(Constants.EXPECTATION_FAILED_EXTRA);
                   
                   // return response immediately if the conditions are not met
                   return response;
