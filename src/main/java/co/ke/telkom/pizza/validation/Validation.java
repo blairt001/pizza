@@ -37,15 +37,7 @@ public class Validation {
                   
                 }
                 
-<<<<<<< HEAD
-<<<<<<< HEAD
-                if(!(order.getPrice() > Constants.MIN_PRICE && order.getPrice() < Constants.MAX_PRICE))
-=======
-                if(order.getPrice() >= Constants.PRICE && order.getPrice() <= Constants.PRICE)
->>>>>>> develop
-=======
                 if(!(order.getPrice() >= Constants.MIN_PRICE && order.getPrice() <= Constants.MAX_PRICE))
->>>>>>> develop
                 {
                     // set the value 
                   response.setStatus(HttpStatus.EXPECTATION_FAILED.value());
