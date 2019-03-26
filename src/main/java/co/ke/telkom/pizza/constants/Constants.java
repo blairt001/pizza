@@ -31,6 +31,10 @@ public class Constants {
     public static final String EXPECTATION_FAILED_PRICE = "Price out of range";
     public static final String EXPECTATION_FAILED_TYPE = "Type should be PEP";
     public static final String EXPECTATION_FAILED_EXTRA = "Extra should be set to true";
+<<<<<<< HEAD
 
 }
 
+=======
+}
+>>>>>>> c4ba2f4efc0a84bc589b19d9f1a510d8a464fa82
