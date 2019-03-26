@@ -25,5 +25,3 @@ public class Constants {
     public static final String EXPECTATION_FAILED_TYPE = "Type should be PEP";
     public static final String EXPECTATION_FAILED_EXTRA = "Extra should be set to true";
 }
-
-}
